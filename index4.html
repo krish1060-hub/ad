@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love, Aadu ❤️</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: 'Poppins', sans-serif;
+      color: #b30059;
+      overflow-x: hidden;
+    }
+
+    /* Overlay */
+    .overlay::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 240, 245, 0.75);
+      z-index: -1;
+    }
+
+    /* Typewriter */
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #ff66a3;
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+      width: 18ch;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 18ch }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #ff66a3; }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      color: #ff4da6;
+      font-size: 20px;
+      animation: float 8s linear infinite;
+      top: -10px;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Hidden message animation */
+    #hiddenMessage {
+      display: none;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button heartbeat */
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .heartbeat {
+      animation: heartbeat 2s infinite;
+    }
+
+    audio { display: none; }
+  </style>
+</head>
+
+<body class="overlay relative flex flex-col items-center justify-center min-h-screen p-4 text-center">
+
+  <!-- Title -->
+  <h1 class="typewriter text-4xl md:text-5xl text-pink-600 font-greatvibes mt-10 drop-shadow-lg">For My Precious Aadu ❤️
+  </h1>
+
+  <!-- Message Box -->
+  <div class="bg-white/80 shadow-xl rounded-3xl px-6 py-8 mt-12 max-w-md md:max-w-xl text-lg leading-relaxed text-rose-700 backdrop-blur-md">
+    <p>
+      My sweetest Aadu,<br>
+      You’re not just someone I love — you’re the reason I believe in love itself.  
+      Every moment with you feels like a page from a dream I never want to end.  
+      You are my peace, my everything, and my forever all in one. 💞
+    </p>
+
+    <!-- Reveal Button -->
+    <button 
+      onclick="revealMessage()" 
+      class="heartbeat mt-6 bg-gradient-to-r from-pink-500 to-rose-400 text-white px-8 py-3 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
+      Click here, my love 💌
+    </button>
+
+    <!-- Hidden Message -->
+    <div id="hiddenMessage" class="mt-8 text-rose-800 text-base md:text-lg">
+      <p>
+        🌹 My dearest Aadu,<br><br>
+        From the very first moment our souls met, my world started to glow differently.  
+        You’ve turned ordinary days into poetry, and silence into music.  
+        Every heartbeat carries your name, and every dream ends with your smile.  
+        If I could give you one thing, it would be the ability to see yourself through my eyes —  
+        only then would you realize how deeply and endlessly you’re loved. 💗
+      </p>
+      <p class="mt-4 font-semibold">Forever yours,<br>Your kri..💖</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-16 mb-6 text-sm text-rose-600"> love you Balaa 💕 ✨</footer>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2023/03/02/audio_50d8dfb4e5.mp3?filename=gentle-piano-romance-141101.mp3" preload="auto"></audio>
+
+  <script>
+    // Reveal message + play music
+    function revealMessage() {
+      const hidden = document.getElementById('hiddenMessage');
+      const music = document.getElementById('bgMusic');
+      hidden.style.display = 'block';
+      music.play();
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    // Floating hearts animation
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 5 + 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 9000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
